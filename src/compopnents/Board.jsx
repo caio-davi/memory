@@ -7,10 +7,9 @@ const Board = (props) => {
     const CardList = (props) => {
         let cardList = [];
         for(let i in props.board ){
-            console.log(props.board[i]);
             cardList.push(
-                <MDBCard className='MDBCard' onClick = {() => props.toggleCard(i)}>
-                    {props.boardView[i] ?
+                <MDBCard className='MDBCard' onClick = {() => props.flipCard(i)}>
+                    {props.boardControl.boardView[i] ?
                         <MDBIcon icon = {props.cardDict[props.board[i]]}  size="5x" />
                         :
                         i
