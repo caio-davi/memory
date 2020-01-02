@@ -1,0 +1,14 @@
+.MDBContainer {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 2em;
+}
+
+.MDBCard{
+    background-color: pink;
+    width: 10em;
+    padding: 2em;
+    margin: 2em;
+}
