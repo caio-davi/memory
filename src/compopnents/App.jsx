@@ -66,11 +66,6 @@ const App = () => {
     }
   };
 
-  console.log('timer_start')
-  console.log('ch_01: ', boardControl.chooseOne);
-  console.log('ch_02: ', boardControl.chooseTwo);
-  console.log('points:', boardControl.points);
-  console.log('turn:', boardControl.turn);
   if(boardControl.chooseOne !== false && boardControl.chooseTwo !== false){
     setTimeout(finishTurn, 1500);
   }
