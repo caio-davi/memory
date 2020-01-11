@@ -1,12 +1,9 @@
 import React from 'react';
 import '../styles/App.css';
 import Board from './Board';
+import Header from './Header';
+import Modal from './Modal';
 import {clone, shuffle} from '../Utils';
-import {
-  MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem,
-  MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem
-  } from "mdbreact";
-
 
 const App = () => {
 
@@ -21,24 +18,35 @@ const App = () => {
     return shuffle(state);
   } 
 
-  const initialBoardControl = {
-    boardView : [],
-    chooseOne : false,
-    chooseTwo : false,
-    points : {
-      0 : 0,
-      1 : 0,
-    },
-   turn : false,
+  const initialBoardControl = (size) => {
+    let boardView = new Array(size);
+    boardView.fill(false);
+    return {
+      boardView : boardView,
+      chooseOne : false,
+      chooseTwo : false,
+      points : {
+        0 : 0,
+        1 : 0,
+      },
+      turn : false,                       // player 1 false, player 2 true
+    }
   };
 
-  const [boardControl, setBoardControl] = React.useState(initialBoardControl);
-  const [board, setBoard] = React.useState(initialState(12));
+  const [boardControl, setBoardControl] = React.useState(initialBoardControl(2));
+  const [board, setBoard] = React.useState(initialState(2));
+  const [newGameModal, setNewGameModal] = React.useState(false);
+  
+  console.log(boardControl);
 
   const newGame = (boardSize) => {
     setBoard(initialState(boardSize));
-    setBoardControl(initialBoardControl);
-  } 
+    setBoardControl(initialBoardControl(boardSize));
+  }
+  
+  const toggleNewGameModal = () => {
+    setNewGameModal(!newGameModal);
+  }
 
   const updateBoardControl = (index, value, choose) => {
     let newBoardControl = clone(boardControl);
@@ -63,7 +71,6 @@ const App = () => {
   };
 
   const finishTurn = () => {
-    console.log('timer_finish')
     if(board[boardControl.chooseOne] === board[boardControl.chooseTwo]){
       cleanChooses(false);
     }else{
@@ -84,38 +91,36 @@ const App = () => {
     setTimeout(finishTurn, 1500);
   }
 
+  const isTrue = (arg) => { 
+    return arg === true;
+  };
+
+  const isFinished  = ()  => {
+    return boardControl.boardView.every(isTrue);
+  };
+
   return (
     <div className="App">
-      <MDBNavbar color="indigo" dark expand="md">
-        <MDBNavbarBrand>
-          <strong className="white-text">Memory Card Game </strong>
-        </MDBNavbarBrand>
-          <MDBNavbarNav left className="App-header" >
-              <MDBNavItem>
-                {boardControl.turn  ? '' : '-'} holder {boardControl.points[0]}
-              </MDBNavItem>
-              <MDBNavItem>
-                {boardControl.turn  ? '-' : ''} holder {boardControl.points[1]}
-              </MDBNavItem>
-              <MDBDropdown>
-                <MDBDropdownToggle nav caret>
-                  <span className="mr-2">New Game</span>
-                </MDBDropdownToggle>
-                <MDBDropdownMenu>
-                  <MDBDropdownItem onClick={()=>{newGame(12)}}>3x4</MDBDropdownItem>
-                  <MDBDropdownItem onClick={()=>{newGame(16)}}>4x4</MDBDropdownItem>
-                  <MDBDropdownItem onClick={()=>{newGame(20)}}>5x4</MDBDropdownItem>
-                </MDBDropdownMenu>
-              </MDBDropdown>
-          </MDBNavbarNav>
-      </MDBNavbar>
-        <Board 
-          board = {board} 
-          boardControl = {boardControl}
-          cardDict = {cardDict}
-          flipCard = {flipCard}
-          />
+      <Modal
+        isFinished={isFinished}
+        newGame={newGame}
+        toggleNewGameModal = {toggleNewGameModal}
+        newGameModal = {newGameModal}
+      />
+
+      <Header 
+        boardControl={boardControl}
+        toggleNewGameModal = {toggleNewGameModal}
+      />
+
+      <Board 
+        board = {board} 
+        boardControl = {boardControl}
+        cardDict = {cardDict}
+        flipCard = {flipCard}
+      />
     </div>
+    
   );
 }
 
