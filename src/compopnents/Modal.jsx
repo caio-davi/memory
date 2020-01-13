@@ -3,16 +3,25 @@ import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalF
 
 
 const Modal = (props) => {
+    
+    const toggleHandler = () => {
+        return props.isFinished() ? props.newGame(props.newGameBoardSize) : props.toggleNewGameModal();
+    }
+
     return(
         <MDBContainer>
-            <MDBModal isOpen={props.isFinished() || props.newGameModel} >
-            <MDBModalHeader toggle={ () => props.newGame()}>MDBModal </MDBModalHeader>
-            <MDBModalBody>
-            Player 2 lost the game, but you always can try again. Congratulations player 1!
-            </MDBModalBody>
-            <MDBModalFooter>
-                <MDBBtn color="primary">Play new game</MDBBtn>
-            </MDBModalFooter>
+            <MDBModal isOpen={props.isFinished() || props.newGameModal} >
+                <MDBModalHeader toggle={() => toggleHandler()}>
+                    MDBModal 
+                </MDBModalHeader>
+                <MDBModalBody>
+                    Player 2 lost the game, but you always can try again. Congratulations player 1!
+                </MDBModalBody>
+                <MDBModalFooter>
+                    <MDBBtn color="primary" onClick = {() => props.newGame(props.newGameBoardSize)}>
+                        Play new game
+                    </MDBBtn>
+                </MDBModalFooter>
             </MDBModal>
         </MDBContainer>
     );
