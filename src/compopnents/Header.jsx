@@ -27,9 +27,9 @@ const Header = (props) => {
                   <span className="h2">New Game</span>
                 </MDBDropdownToggle>
                 <MDBDropdownMenu>
-                  <MDBDropdownItem onClick={()=>{props.toggleNewGameModal()}}>3x4</MDBDropdownItem>
-                  <MDBDropdownItem onClick={()=>{props.toggleNewGameModal()}}>4x4</MDBDropdownItem>
-                  <MDBDropdownItem onClick={()=>{props.toggleNewGameModal()}}>5x4</MDBDropdownItem>
+                  <MDBDropdownItem onClick={()=>{props.handleNewGameModal(12)}}>3x4</MDBDropdownItem>
+                  <MDBDropdownItem onClick={()=>{props.handleNewGameModal(16)}}>4x4</MDBDropdownItem>
+                  <MDBDropdownItem onClick={()=>{props.handleNewGameModal(20)}}>5x4</MDBDropdownItem>
                 </MDBDropdownMenu>
               </MDBDropdown>
           </MDBNavbarNav>

@@ -36,17 +36,24 @@ const App = () => {
   const [boardControl, setBoardControl] = React.useState(initialBoardControl(2));
   const [board, setBoard] = React.useState(initialState(2));
   const [newGameModal, setNewGameModal] = React.useState(false);
-  
+  const [newGameBoardSize, setNewGameBoardSize] = React.useState(12);
+
   console.log(boardControl);
 
   const newGame = (boardSize) => {
     setBoard(initialState(boardSize));
     setBoardControl(initialBoardControl(boardSize));
-  }
+    setNewGameModal(false);
+  };
   
   const toggleNewGameModal = () => {
     setNewGameModal(!newGameModal);
-  }
+  };
+
+  const handleNewGameModal = (value) => {
+    setNewGameModal(!newGameModal);
+    setNewGameBoardSize(value);
+  };
 
   const updateBoardControl = (index, value, choose) => {
     let newBoardControl = clone(boardControl);
@@ -104,13 +111,15 @@ const App = () => {
       <Modal
         isFinished={isFinished}
         newGame={newGame}
-        toggleNewGameModal = {toggleNewGameModal}
+        handleNewGameModal = {handleNewGameModal}
         newGameModal = {newGameModal}
+        newGameBoardSize = {newGameBoardSize}
+        toggleNewGameModal = {toggleNewGameModal}
       />
 
       <Header 
         boardControl={boardControl}
-        toggleNewGameModal = {toggleNewGameModal}
+        handleNewGameModal = {handleNewGameModal}
       />
 
       <Board 
