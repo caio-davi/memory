@@ -33,8 +33,8 @@ const App = () => {
     }
   };
 
-  const [boardControl, setBoardControl] = React.useState(initialBoardControl(2));
-  const [board, setBoard] = React.useState(initialState(2));
+  const [boardControl, setBoardControl] = React.useState(initialBoardControl(12));
+  const [board, setBoard] = React.useState(initialState(12));
   const [newGameModal, setNewGameModal] = React.useState(false);
   const [newGameBoardSize, setNewGameBoardSize] = React.useState(12);
 
