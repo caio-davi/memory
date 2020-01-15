@@ -38,8 +38,6 @@ const App = () => {
   const [newGameModal, setNewGameModal] = React.useState(false);
   const [newGameBoardSize, setNewGameBoardSize] = React.useState(12);
 
-  console.log(boardControl);
-
   const newGame = (boardSize) => {
     setBoard(initialState(boardSize));
     setBoardControl(initialBoardControl(boardSize));
@@ -106,6 +104,17 @@ const App = () => {
     return boardControl.boardView.every(isTrue);
   };
 
+  const winner = () => {
+    return boardControl.points[0] > boardControl.points[1] ? 1 : 0;
+  };
+
+  const modalMessage = () => {
+    if(!newGameModal && boardControl.points[0] === boardControl.points[1]){
+      return "Draw game!";
+    }
+    return isFinished() ? "Player "+ winner() +" win!" : "Are you sure?";
+  };
+
   return (
     <div className="App">
       <Modal
@@ -115,6 +124,7 @@ const App = () => {
         newGameModal = {newGameModal}
         newGameBoardSize = {newGameBoardSize}
         toggleNewGameModal = {toggleNewGameModal}
+        modalMessage = {modalMessage}
       />
 
       <Header 
