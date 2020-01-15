@@ -6,7 +6,7 @@ const Modal = (props) => {
     
     const toggleHandler = () => {
         return props.isFinished() ? props.newGame(props.newGameBoardSize) : props.toggleNewGameModal();
-    }
+    };
 
     return(
         <MDBContainer>
@@ -15,11 +15,11 @@ const Modal = (props) => {
                     MDBModal 
                 </MDBModalHeader>
                 <MDBModalBody>
-                    Player 2 lost the game, but you always can try again. Congratulations player 1!
+                    {props.modalMessage()}
                 </MDBModalBody>
                 <MDBModalFooter>
                     <MDBBtn color="primary" onClick = {() => props.newGame(props.newGameBoardSize)}>
-                        Play new game
+                        Ok
                     </MDBBtn>
                 </MDBModalFooter>
             </MDBModal>
