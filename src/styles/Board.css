@@ -1,0 +1,21 @@
+.MDBContainer {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 2em;
+}
+
+.MDBCard{
+    width: 10em;
+    height: 10em;
+    padding: 2em;
+    margin: 2em;
+}
+
+.MDBCard_small{
+    width: 8em;
+    height: 8em;
+    padding: 1em;
+    margin: 1em;
+}

@@ -1,0 +1,32 @@
+.Header {
+    display: flex;
+    flex:1;
+    flex-direction: row;
+    width: 50rem;
+    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+
+.Inactive{
+    padding: 0.5rem;
+}
+
+.Active {
+    background-color: pink;
+    padding: 0.5rem;
+    position: bottom;
+    margin-top: auto;
+    text-decoration: none;
+    color: #000;
+    display: inline-block;
+    overflow: hidden;
+    /* Firefox */
+    -moz-box-shadow: 5px 5px 7px rgba(33, 33, 33, 1);
+    /* Safari+Chrome */
+    -webkit-box-shadow: 5px 5px 7px rgba(33, 33, 33, 0.7);
+    /* Opera */
+    box-shadow: 5px 5px 7px rgba(33, 33, 33, 0.7);
+}
