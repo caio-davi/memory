@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/memory/static/css/main.cc817ad2.chunk.css",
+    "main.js": "/memory/static/js/main.53a9eb82.chunk.js",
+    "main.js.map": "/memory/static/js/main.53a9eb82.chunk.js.map",
+    "runtime-main.js": "/memory/static/js/runtime-main.e038bfa5.js",
+    "runtime-main.js.map": "/memory/static/js/runtime-main.e038bfa5.js.map",
+    "static/css/2.76a89a9a.chunk.css": "/memory/static/css/2.76a89a9a.chunk.css",
+    "static/js/2.b0356967.chunk.js": "/memory/static/js/2.b0356967.chunk.js",
+    "static/js/2.b0356967.chunk.js.map": "/memory/static/js/2.b0356967.chunk.js.map",
+    "index.html": "/memory/index.html",
+    "precache-manifest.4ed9897891c582e106153fe48a230e8f.js": "/memory/precache-manifest.4ed9897891c582e106153fe48a230e8f.js",
+    "service-worker.js": "/memory/service-worker.js",
+    "static/css/2.76a89a9a.chunk.css.map": "/memory/static/css/2.76a89a9a.chunk.css.map",
+    "static/css/main.cc817ad2.chunk.css.map": "/memory/static/css/main.cc817ad2.chunk.css.map",
+    "static/js/2.b0356967.chunk.js.LICENSE": "/memory/static/js/2.b0356967.chunk.js.LICENSE",
+    "static/media/mdb.css": "/memory/static/media/arrow_right.8ef6a08c.svg",
+    "static/media/all.min.css": "/memory/static/media/fa-solid-900.f6121be5.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e038bfa5.js",
+    "static/css/2.76a89a9a.chunk.css",
+    "static/js/2.b0356967.chunk.js",
+    "static/css/main.cc817ad2.chunk.css",
+    "static/js/main.53a9eb82.chunk.js"
+  ]
+}
